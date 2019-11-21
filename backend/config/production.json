@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb://db:27017/main",
+    "jwtSecret": "mysecrettoken"
+}

@@ -1,0 +1,13 @@
+FROM node:dubnium
+RUN mkdir -p /app/client
+WORKDIR /app/client
+
+# install and cache app dependencies
+COPY package.json /app/client/package.json
+RUN npm install --silent\
+
+# Copies the files from the client directory to the container
+COPY . /app/client
+
+# start app
+CMD ["npm", "start"]

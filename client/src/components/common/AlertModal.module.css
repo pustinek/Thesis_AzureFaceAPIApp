@@ -1,0 +1,52 @@
+
+
+.container {
+    height: auto;
+    width: 300px;
+    display: flex;
+    flex-direction: row;
+    bottom: 5px;
+    right: 5px;
+    padding: 1.5rem;
+    color: white;
+    border-radius: 3px;
+   
+    margin-bottom: 5px;
+    
+}
+
+.error {
+    background-color: rgb(247, 123, 107);
+    box-shadow: 0 4px 2px 0 rgb(243, 93, 73);
+}
+.info  {
+    background-color: rgb(88, 187, 238);
+    box-shadow: 0 4px 2px 0 rgb(36, 170, 236);
+}
+.success  {
+    background-color: rgb(117, 193, 129);
+    box-shadow: 0 4px 2px 0 rgb(83, 194, 100);
+}
+
+.icon__container {
+    align-self: center;
+    margin-right: 1.5rem;
+    font-size: 2.5rem;
+}
+.text__container {
+    align-self: center;
+}
+.icon {
+    width: 30px;
+    height: 100%;
+}
+.title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: white;
+    display: block;
+}
+.content {
+    display: block;
+    font-size: 1.4rem;
+}

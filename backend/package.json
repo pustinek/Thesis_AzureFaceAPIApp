@@ -1,0 +1,32 @@
+{
+  "name": "azureface_web_interface",
+  "version": "1.0.0",
+  "description": "A web application for comunicating with azure face",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon server.js",
+    "devDocker": "nodemon -L server.js",
+    "client": "npm start --prefix ../client",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "author": "pustinek",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.19.0",
+    "bcryptjs": "^2.4.3",
+    "cache-manager": "^2.10.0",
+    "config": "^3.1.0",
+    "easy-rbac": "^3.1.0",
+    "express": "^4.17.0",
+    "express-validator": "^5.3.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.9",
+    "multer": "^1.4.1",
+    "request": "^2.88.0"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.19.0"
+  }
+}

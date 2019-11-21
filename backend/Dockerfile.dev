@@ -1,0 +1,15 @@
+FROM node:dubnium
+
+RUN npm install -g nodemon
+
+RUN mkdir -p /app/backend
+WORKDIR /app/backend
+
+COPY package*.json /app/backend/
+
+RUN npm install
+
+COPY . /app/backend
+
+CMD ["npm","run","devDocker"]
+

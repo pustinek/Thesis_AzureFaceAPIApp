@@ -1,0 +1,30 @@
+FROM node:dubnium as builder
+
+RUN mkdir -p /src/app/backend
+WORKDIR /src/app/backend
+
+COPY package*.json /src/app/backend/
+
+
+#! Install the build requirements for bcrypt
+#RUN apk update && apk upgrade \
+#  && apk --no-cache add --virtual builds-deps build-base python \
+#  && yarn add node-gyp node-pre-gyp
+
+# Install dependencies
+RUN npm install --production=true
+
+# Copy the server files over
+COPY . /src/app/backend/
+
+FROM node:dubnium
+
+# Create and set the working directory
+RUN mkdir -p /src/app/backend
+WORKDIR /src/app/backend
+
+
+# Copy the server from the build container
+COPY --from=builder /src/app/backend /src/app/backend
+
+CMD ["node", "server.js"]

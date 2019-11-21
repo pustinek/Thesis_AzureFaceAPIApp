@@ -1,0 +1,37 @@
+version: "3"
+services:
+  server:
+    build: ./backend
+    environment:
+      - MONGO_URI=mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@${MONGO_URI}
+      - PORT=${PORT}
+      - NODE_ENV=${NODE_ENV}
+    ports:
+      - ${PORT}:${PORT}
+    command: node src/server.js
+    links:
+      - db
+    restart: always
+  client:
+    build: 
+      context: ./client
+      dockerfile: Dockerfile.prod
+    ports:
+      - 80:80
+    links:
+      - server
+    restart: always
+  db:
+    image: mongo
+    ports:
+      - ${MONGO_PORT}:${MONGO_PORT}
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_INITDB_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - board-dbdata:/data/db
+volumes:
+  ? board-dbdata
+
+  
